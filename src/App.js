@@ -15,7 +15,7 @@ export default () => {
         timeDimensions: [{
           dimension: 'AdyenEventDataQueue.createdAt',
           dateRange: ['2018-11-20', '2018-11-20'],
-          granularity: 'hour'
+          granularity: 'null'
         }]
       }} 
       cubejsApi={cubejsApi} 
@@ -27,7 +27,7 @@ export default () => {
         return (
           (resultSet) => (
             <h1 height={300}>
-              { numeral(resultSet.chartPivot()[0]['AdyenEventDataQueue.count']).format('$0,0.00') }
+              { numeral(resultSet.chartPivot()[0]['AdyenEventDataQueue.count']) }
             </h1>
  )
 
