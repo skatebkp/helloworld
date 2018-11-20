@@ -9,8 +9,9 @@ export default () => {
   return (
     <QueryRenderer 
       query={{
-        measures: ['integration_log.count'],
-        dimensions: ['integration_log.date_created']
+        measures: ['AdyenEventDataQueue.count'],
+        dimensions: ['AdyenEventDataQueue.createdAt']
+        
       }} 
       cubejsApi={cubejsApi} 
       render={({ resultSet }) => {
@@ -20,9 +21,9 @@ export default () => {
 
         return (
           <LineChart data={resultSet.rawData()}>
-            <XAxis dataKey="integration_log.date_created"/>
+            <XAxis dataKey="AdyenEventDataQueue.createdAt"/>
             <YAxis/>
-            <Line type="monotone" dataKey="integration_log..count" stroke="#8884d8"/>
+            <Line type="monotone" dataKey="AdyenEventDataQueue.count" stroke="#8884d8"/>
           </LineChart>
         );
       }}
